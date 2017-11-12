@@ -2,6 +2,7 @@
 
 // see http://vuejs-templates.github.io/webpack for documentation.
 const path = require('path')
+const devEnv = require('./dev.env')
 
 module.exports = {
   build: {
@@ -24,12 +25,25 @@ module.exports = {
     bundleAnalyzerReport: process.env.npm_config_report
   },
   dev: {
-    env: require('./dev.env'),
+    env: devEnv,
     port: 8080,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/api': {
+        target: process.env.JENKINS_HOST || devEnv.JENKINS_HOST,
+        changeOrigin: true
+      },
+      '/view': {
+        target: process.env.JENKINS_HOST || devEnv.JENKINS_HOST,
+        changeOrigin: true
+      },
+      '/job': {
+        target: process.env.JENKINS_HOST || devEnv.JENKINS_HOST,
+        changeOrigin: true
+      }
+    },
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
     // (https://github.com/webpack/css-loader#sourcemaps)

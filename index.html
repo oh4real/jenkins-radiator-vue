@@ -25,8 +25,10 @@
         for (var file of chunk.files) {
           if (file.match(/\.(js|css)$/)) { %>
     <link rel="<%= chunk.initial?'preload':'prefetch' %>" href="<%= htmlWebpackPlugin.files.publicPath + file %>" as="<%= file.match(/\.css$/)?'style':'script' %>"><% }}} %>
+
+    <link rel="stylesheet" href="static/css/main.css">
   </head>
-  <body>
+  <body class="bvRadiator">
     <noscript>
       This is your fallback content in case JavaScript fails to load.
     </noscript>
