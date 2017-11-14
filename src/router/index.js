@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/components/Home'
+import JenkinsMenu from '@/components/JenkinsMenu'
 import Radiator from '@/components/Radiator'
 
 Vue.use(Router)
@@ -9,8 +9,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Home',
-      component: Home
+      component: JenkinsMenu
     },
     {
       path: '/radiator/:view',
