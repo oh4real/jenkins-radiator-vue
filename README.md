@@ -11,6 +11,8 @@ npm install
 # serve with hot reload at localhost:8080
 # NOTE! update config/prodEnv.JENKINS_HOST or supply as environment argument
 npm run dev
+- or -
+JENKINS_HOST=http://jenkins.server.corn npm run dev
 
 # build for production with minification
 npm run build
@@ -28,12 +30,12 @@ npm run e2e
 npm test
 ```
 
-## For Vhosting
-#### Ure the following Apache reverse proxy vhost config (or similar for NGINX) to your web server:
+## For Vhosting in Production
+#### Add the following Apache reverse-proxy vhost config entry to your Apache server (or similar for NGINX):
 ```
 <VirtualHost *:80>
 	...
-	DocumentRoot "/SERVER/PATH/TO/jenkins-radiator-vue/dist"
+	DocumentRoot "/PATH/TO/jenkins-radiator-vue/dist"
 	ServerName jenkins-radiator
 	...
 	<Directory />    
