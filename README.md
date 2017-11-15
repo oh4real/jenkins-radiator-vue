@@ -30,13 +30,17 @@ npm run e2e
 npm test
 ```
 
-## For Vhosting in Production
-#### Add the following Apache reverse-proxy vhost config entry to your Apache server (or similar for NGINX):
+## Vhosting Proxy to Jenkins
+#### Add something like the following Apache reverse-proxy vhost config entry to your Apache server (or similar for NGINX):
+
+Simple rewrite rule:
+
 ```
 <VirtualHost *:80>
 	...
 	DocumentRoot "/PATH/TO/jenkins-radiator-vue/dist"
 	ServerName jenkins-radiator
+	DirectoryIndex index.html
 	...
 	<Directory />    
 		RewriteEngine On
@@ -46,4 +50,17 @@ npm test
 </VirtualHost>
 ```
 
+or location directives
+
+```
+<Location /view/>
+  ProxyPass http://###YOUR.JENKINS.SERVER###/view/
+  ProxyPassReverse http://###YOUR.JENKINS.SERVER###/view/
+</Location>
+
+<Location /api/>
+  ProxyPass http://###YOUR.JENKINS.SERVER###/api/
+  ProxyPassReverse http://###YOUR.JENKINS.SERVER###/api/
+</Location>
+```
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
