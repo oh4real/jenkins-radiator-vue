@@ -7,6 +7,7 @@
 <script>
 import RadiatorJob from '@/components/RadiatorJob'
 export default {
+  name: 'radiator-group',
   data () {
     return {}
   },

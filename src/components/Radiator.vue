@@ -1,16 +1,17 @@
 <template>
     <div class="container-fluid">
         <jenkins-menu></jenkins-menu>
-        <radiator></radiator>    
+        <radiator-view></radiator-view>    
     </div>  
 </template>
 
 <script>
 import JenkinsMenu from '@/components/JenkinsMenu'
-import Radiator from '@/components/RadiatorView'
+import RadiatorView from '@/components/RadiatorView'
 export default {
+  name: 'radiator',
   components: {
-    Radiator, JenkinsMenu
+    RadiatorView, JenkinsMenu
   }
 }
 </script>
