@@ -16,6 +16,5 @@ export default new Router({
       name: 'Radiator',
       component: Radiator
     }
-
   ]
 })
