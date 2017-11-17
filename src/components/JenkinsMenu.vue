@@ -31,7 +31,7 @@
     },
     methods: {
       navigateToRadiator: function () {
-        this.$router.push({ name: 'RadiatorView', params: { view: this.selected } })
+        this.$router.push({ name: 'Radiator', params: { view: this.selected } })
       }
     },
     mounted () {

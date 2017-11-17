@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
-import RadiatorView from '@/components/RadiatorView'
+import Radiator from '@/components/Radiator'
 
 Vue.use(Router)
 
@@ -13,8 +13,8 @@ export default new Router({
     },
     {
       path: '/radiator/:view',
-      name: 'RadiatorView',
-      component: RadiatorView
+      name: 'Radiator',
+      component: Radiator
     }
 
   ]
