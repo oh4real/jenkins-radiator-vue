@@ -1,25 +1,25 @@
 <template>
 <div>
     <ul v-if="fails.length" class="failed list-group row radiatorGroup">
-        <radiator-element v-for="job in orderedJobs(fails)" :job="job" :key="job.name"/></radiator-element>
+        <radiator-job v-for="job in orderedJobs(fails)" :job="job" :key="job.name"/></radiator-element>
     </ul>
     <ul v-if="aborted.length" class="list-group row radiatorGroup">
-        <radiator-element v-for="job in orderedJobs(aborted)" :job="job" :key="job.name" /></radiator-element>
+        <radiator-job v-for="job in orderedJobs(aborted)" :job="job" :key="job.name" /></radiator-element>
     </ul>
     <ul v-if="stables.length" class="list-group row radiatorGroup">
-        <radiator-element v-for="job in orderedJobs(stables)" :job="job" :key="job.name" /></radiator-element>
+        <radiator-job v-for="job in orderedJobs(stables)" :job="job" :key="job.name" /></radiator-element>
     </ul>
     <ul v-if="disableds.length" class="list-group row radiatorGroup">
-        <radiator-element v-for="job in orderedJobs(disableds)" :job="job" :key="job.name" /></radiator-element>
+        <radiator-job v-for="job in orderedJobs(disableds)" :job="job" :key="job.name" /></radiator-element>
     </ul>
     <ul v-if="unknowns.length" class="list-group row radiatorGroup">
-        <radiator-element v-for="job in orderedJobs(unknowns)" :job="job" :key="job.name" /></radiator-element>
+        <radiator-job v-for="job in orderedJobs(unknowns)" :job="job" :key="job.name" /></radiator-element>
     </ul>
 </div>
 </template>
 
 <script>
-  import RadiatorElement from '@/components/RadiatorElement'
+  import RadiatorJob from '@/components/RadiatorJob'
   export default {
     name: 'radiator-vue',
     data () {
@@ -35,7 +35,7 @@
       }
     },
     components: {
-      RadiatorElement
+      RadiatorJob
     },
     created () {
       // fetch the data when the view is created and the data is
