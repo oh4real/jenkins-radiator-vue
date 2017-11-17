@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import JenkinsMenu from '@/components/JenkinsMenu'
-import Radiator from '@/components/Radiator'
+import Home from '@/components/Home'
+import RadiatorView from '@/components/RadiatorView'
 
 Vue.use(Router)
 
@@ -9,12 +9,12 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: JenkinsMenu
+      component: Home
     },
     {
       path: '/radiator/:view',
-      name: 'Radiator',
-      component: Radiator
+      name: 'RadiatorView',
+      component: RadiatorView
     }
 
   ]
