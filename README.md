@@ -63,4 +63,21 @@ or location directives
   ProxyPassReverse http://###YOUR.JENKINS.SERVER###/api/
 </Location>
 ```
+
+and NGINX location
+```
+    server {
+       server_name  jenkins-radiator;
+       root   /PATH/TO/jenkins-radiator-vue/dist;
+        
+       location / {
+           index  index.html index.htm;
+       }
+
+       location ~ \/(view|api) {
+           proxy_pass http://###JENKINS;
+       }
+
+    }
+```
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
