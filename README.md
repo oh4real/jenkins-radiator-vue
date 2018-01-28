@@ -44,7 +44,7 @@ Simple rewrite rule:
 	...
 	<Directory />    
 		RewriteEngine On
-		RewriteRule /(view|api/job)/(.*) http://###YOUR.JENKINS.SERVER###/$1/$2 [P]
+		RewriteRule /(view|api)/(.*) http://###YOUR.JENKINS.SERVER###/$1/$2 [P]
 		...
 	</Directory>
 </VirtualHost>
@@ -53,15 +53,10 @@ Simple rewrite rule:
 or location directives
 
 ```
-<Location /view/>
-  ProxyPass http://###YOUR.JENKINS.SERVER###/view/
-  ProxyPassReverse http://###YOUR.JENKINS.SERVER###/view/
-</Location>
-
-<Location /api/>
-  ProxyPass http://###YOUR.JENKINS.SERVER###/api/
-  ProxyPassReverse http://###YOUR.JENKINS.SERVER###/api/
-</Location>
+<LocationMatch "^/(view|api)">
+  ProxyPass http://###YOUR.JENKINS.SERVER###
+  ProxyPassReverse http://###YOUR.JENKINS.SERVER###
+</LocationMatch>
 ```
 
 and NGINX location
