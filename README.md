@@ -75,7 +75,7 @@ and NGINX location
        }
 
        location ~ \/(view|api) {
-           proxy_pass http://###JENKINS;
+           proxy_pass http://###YOUR.JENKINS.SERVER###;
        }
 
     }
