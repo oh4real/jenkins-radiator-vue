@@ -5,7 +5,7 @@
 
 <script>
   export default {
-    name: 'radiator-element',
+    name: 'radiator-job',
     props: {
       job: {}
     },
@@ -16,7 +16,7 @@
       }
     },
     computed: {
-      status: function () {
+      status () {
         return this.job.color
       },
       colSize () {
